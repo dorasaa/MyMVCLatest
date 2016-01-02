@@ -1,0 +1,13 @@
+C:\Development\MyMVCLatest\BusinessLayer\bin\Debug\BusinessLayer.dll
+C:\Development\MyMVCLatest\BusinessLayer\bin\Debug\BusinessLayer.pdb
+C:\Development\MyMVCLatest\BusinessLayer\obj\Debug\BusinessLayer.dll
+C:\Development\MyMVCLatest\BusinessLayer\obj\Debug\BusinessLayer.pdb
+C:\Development\MyMVCLatest\BusinessLayer\obj\Debug\BusinessLayer.csprojResolveAssemblyReference.cache
+C:\Development\MyMVCLatest\BusinessLayer\bin\Debug\BusinessLayer.dll.config
+C:\Development\MyMVCLatest\BusinessLayer\bin\Debug\EntityFramework.dll
+C:\Development\MyMVCLatest\BusinessLayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Development\MyMVCLatest\BusinessLayer\bin\Debug\EntityFramework.xml
+C:\Development\MyMVCLatest\BusinessLayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Development\MyMVCLatest\BusinessLayer\bin\Debug\nunit.framework.dll
+C:\Development\MyMVCLatest\BusinessLayer\bin\Debug\TechTalk.SpecFlow.dll
+C:\Development\MyMVCLatest\BusinessLayer\bin\Debug\nunit.framework.xml

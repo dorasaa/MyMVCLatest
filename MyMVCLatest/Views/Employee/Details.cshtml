@@ -1,0 +1,37 @@
+﻿@model MyMVCLatest.Models.Employee
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+<b>Employee Details</b> <br />
+
+<table>
+<tr>
+<td>Employee ID</td>
+<td>@Model.employeeid</td>
+</tr>
+<tr>
+<td>Name</td>
+<td>@Model.name</td>
+</tr>
+
+<tr>
+<td>Gender</td>
+<td>@Model.gender</td>
+</tr>
+
+<tr>
+<td>City</td>
+<td>@Model.city</td>
+</tr>
+
+
+
+ 
+
+</table>
+
+<br />
+@Html.ActionLink("Back", "All",new {DepartmentId=1})

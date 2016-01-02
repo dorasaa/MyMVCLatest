@@ -1,0 +1,7 @@
+C:\Development\MyMVCLatest\AcceptanceTestSpec\bin\Debug\AcceptanceTestSpec.dll.config
+C:\Development\MyMVCLatest\AcceptanceTestSpec\bin\Debug\AcceptanceTestSpec.dll
+C:\Development\MyMVCLatest\AcceptanceTestSpec\bin\Debug\AcceptanceTestSpec.pdb
+C:\Development\MyMVCLatest\AcceptanceTestSpec\bin\Debug\TechTalk.SpecFlow.dll
+C:\Development\MyMVCLatest\AcceptanceTestSpec\obj\Debug\AcceptanceTestSpec.csprojResolveAssemblyReference.cache
+C:\Development\MyMVCLatest\AcceptanceTestSpec\obj\Debug\AcceptanceTestSpec.dll
+C:\Development\MyMVCLatest\AcceptanceTestSpec\obj\Debug\AcceptanceTestSpec.pdb

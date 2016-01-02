@@ -1,0 +1,28 @@
+﻿@using MyMVCLatest.Models;
+@model IEnumerable<MyMVCLatest.Models.Employee>
+
+
+@{
+    ViewBag.Title = "Employee List";
+}
+
+<h2>Employee List</h2>
+
+
+
+    <table>
+
+    @foreach (Employee emp in @Model)
+    { 
+     <tr>
+
+    <td>@Html.ActionLink(emp.name, "Details", new { id = emp.employeeid })</td>
+    </tr>
+ 
+    }
+
+
+  
+      </table>
+
+  

@@ -1,0 +1,25 @@
+﻿@using MyMVCLatest.Models;
+@model IEnumerable<Department>
+
+
+@{
+    ViewBag.Title = "Department List";
+}
+
+
+
+
+<table>
+
+@foreach (Department dep in @Model)
+{ 
+ <tr>
+
+<td>@Html.ActionLink(dep.name, "All","Employee", new { DepartmentId= dep.id},null)</td>
+</tr>
+ 
+}
+
+
+  
+  </table>

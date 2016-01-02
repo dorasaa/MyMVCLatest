@@ -1,0 +1,329 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="HaveyouseenmeModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="HaveyouseenmeModelStoreContainer">
+          <EntitySet Name="PetType" EntityType="HaveyouseenmeModel.Store.PetType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="product" EntityType="HaveyouseenmeModel.Store.product" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="sale" EntityType="HaveyouseenmeModel.Store.sale" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Setting" EntityType="HaveyouseenmeModel.Store.Setting" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Status" EntityType="HaveyouseenmeModel.Store.Status" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tab1" EntityType="HaveyouseenmeModel.Store.tab1" store:Type="Tables" store:Schema="dbo" store:Name="tab1">
+            <DefiningQuery>SELECT 
+      [tab1].[id1] AS [id1], 
+      [tab1].[name] AS [name]
+      FROM [dbo].[tab1] AS [tab1]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tblemployee" EntityType="HaveyouseenmeModel.Store.tblemployee" store:Type="Tables" store:Schema="dbo" store:Name="tblemployee">
+            <DefiningQuery>SELECT 
+      [tblemployee].[employeeid] AS [employeeid], 
+      [tblemployee].[name] AS [name], 
+      [tblemployee].[gender] AS [gender], 
+      [tblemployee].[city] AS [city], 
+      [tblemployee].[deptid] AS [deptid]
+      FROM [dbo].[tblemployee] AS [tblemployee]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="product_id_fk" Association="HaveyouseenmeModel.Store.product_id_fk">
+            <End Role="product" EntitySet="product" />
+            <End Role="sale" EntitySet="sale" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="PetType">
+          <Key>
+            <PropertyRef Name="PetTypeID" />
+          </Key>
+          <Property Name="PetTypeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PetTypeDescription" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="product">
+          <Key>
+            <PropertyRef Name="productid" />
+          </Key>
+          <Property Name="productid" Type="int" Nullable="false" />
+          <Property Name="product" Type="varchar" MaxLength="100" />
+          <Property Name="cost" Type="money" />
+        </EntityType>
+        <EntityType Name="sale">
+          <Key>
+            <PropertyRef Name="saleid" />
+          </Key>
+          <Property Name="saleid" Type="int" Nullable="false" />
+          <Property Name="saledate" Type="date" Nullable="false" />
+          <Property Name="quantity" Type="int" />
+          <Property Name="productid" Type="int" />
+        </EntityType>
+        <EntityType Name="Setting">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Key" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Value" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="StatusID" />
+          </Key>
+          <Property Name="StatusID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'Haveyouseenme.dbo.tab1' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="tab1">
+          <Key>
+            <PropertyRef Name="id1" />
+          </Key>
+          <Property Name="id1" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'Haveyouseenme.dbo.tblemployee' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="tblemployee">
+          <Key>
+            <PropertyRef Name="employeeid" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="gender" />
+            <PropertyRef Name="city" />
+          </Key>
+          <Property Name="employeeid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="gender" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="city" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="deptid" Type="int" />
+        </EntityType>
+        <Association Name="product_id_fk">
+          <End Role="product" Type="HaveyouseenmeModel.Store.product" Multiplicity="0..1" />
+          <End Role="sale" Type="HaveyouseenmeModel.Store.sale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="productid" />
+            </Principal>
+            <Dependent Role="sale">
+              <PropertyRef Name="productid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <!--Errors Found During Generation:
+      warning 6013: The table/view 'Haveyouseenme.dbo.tab2' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="tab2">
+        <Property Name="id1" Type="int" />
+        <Property Name="score" Type="int" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6013: The table/view 'Haveyouseenme.dbo.tbldepartment' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="tbldepartment">
+        <Property Name="id" Type="int" />
+        <Property Name="name" Type="varchar" MaxLength="50" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6013: The table/view 'Haveyouseenme.dbo.TestTable' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="TestTable">
+        <Property Name="Column1" Type="int" />
+        <Property Name="Column2" Type="int" />
+        <Property Name="Column3" Type="int" />
+        <Property Name="Column4" Type="int" />
+      </EntityType>-->
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HaveyouseenmeModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="HaveyouseenmeEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="PetTypes" EntityType="HaveyouseenmeModel.PetType" />
+          <EntitySet Name="products" EntityType="HaveyouseenmeModel.product" />
+          <EntitySet Name="sales" EntityType="HaveyouseenmeModel.sale" />
+          <EntitySet Name="Settings" EntityType="HaveyouseenmeModel.Setting" />
+          <EntitySet Name="Status" EntityType="HaveyouseenmeModel.Status" />
+          <EntitySet Name="tab1" EntityType="HaveyouseenmeModel.tab1" />
+          <EntitySet Name="tblemployees" EntityType="HaveyouseenmeModel.tblemployee" />
+          <AssociationSet Name="product_id_fk" Association="HaveyouseenmeModel.product_id_fk">
+            <End Role="product" EntitySet="products" />
+            <End Role="sale" EntitySet="sales" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="PetType">
+          <Key>
+            <PropertyRef Name="PetTypeID" />
+          </Key>
+          <Property Name="PetTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PetTypeDescription" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="product">
+          <Key>
+            <PropertyRef Name="productid" />
+          </Key>
+          <Property Name="productid" Type="Int32" Nullable="false" />
+          <Property Name="product1" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="cost" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="sales" Relationship="HaveyouseenmeModel.product_id_fk" FromRole="product" ToRole="sale" />
+        </EntityType>
+        <EntityType Name="sale">
+          <Key>
+            <PropertyRef Name="saleid" />
+          </Key>
+          <Property Name="saleid" Type="Int32" Nullable="false" />
+          <Property Name="saledate" Type="DateTime" Nullable="false" />
+          <Property Name="quantity" Type="Int32" />
+          <Property Name="productid" Type="Int32" />
+          <NavigationProperty Name="product" Relationship="HaveyouseenmeModel.product_id_fk" FromRole="sale" ToRole="product" />
+        </EntityType>
+        <EntityType Name="Setting">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Key" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Value" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="StatusID" />
+          </Key>
+          <Property Name="StatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tab1">
+          <Key>
+            <PropertyRef Name="id1" />
+          </Key>
+          <Property Name="id1" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tblemployee">
+          <Key>
+            <PropertyRef Name="employeeid" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="gender" />
+            <PropertyRef Name="city" />
+          </Key>
+          <Property Name="employeeid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="gender" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="city" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="deptid" Type="Int32" />
+        </EntityType>
+        <Association Name="product_id_fk">
+          <End Role="product" Type="HaveyouseenmeModel.product" Multiplicity="0..1" />
+          <End Role="sale" Type="HaveyouseenmeModel.sale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="productid" />
+            </Principal>
+            <Dependent Role="sale">
+              <PropertyRef Name="productid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HaveyouseenmeModelStoreContainer" CdmEntityContainer="HaveyouseenmeEntities">
+          <EntitySetMapping Name="PetTypes">
+            <EntityTypeMapping TypeName="HaveyouseenmeModel.PetType">
+              <MappingFragment StoreEntitySet="PetType">
+                <ScalarProperty Name="PetTypeID" ColumnName="PetTypeID" />
+                <ScalarProperty Name="PetTypeDescription" ColumnName="PetTypeDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="products">
+            <EntityTypeMapping TypeName="HaveyouseenmeModel.product">
+              <MappingFragment StoreEntitySet="product">
+                <ScalarProperty Name="productid" ColumnName="productid" />
+                <ScalarProperty Name="product1" ColumnName="product" />
+                <ScalarProperty Name="cost" ColumnName="cost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sales">
+            <EntityTypeMapping TypeName="HaveyouseenmeModel.sale">
+              <MappingFragment StoreEntitySet="sale">
+                <ScalarProperty Name="saleid" ColumnName="saleid" />
+                <ScalarProperty Name="saledate" ColumnName="saledate" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="productid" ColumnName="productid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Settings">
+            <EntityTypeMapping TypeName="HaveyouseenmeModel.Setting">
+              <MappingFragment StoreEntitySet="Setting">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Key" ColumnName="Key" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Status">
+            <EntityTypeMapping TypeName="HaveyouseenmeModel.Status">
+              <MappingFragment StoreEntitySet="Status">
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tab1">
+            <EntityTypeMapping TypeName="HaveyouseenmeModel.tab1">
+              <MappingFragment StoreEntitySet="tab1">
+                <ScalarProperty Name="id1" ColumnName="id1" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblemployees">
+            <EntityTypeMapping TypeName="HaveyouseenmeModel.tblemployee">
+              <MappingFragment StoreEntitySet="tblemployee">
+                <ScalarProperty Name="employeeid" ColumnName="employeeid" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="deptid" ColumnName="deptid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="satishModel">
+        <EntityTypeShape EntityType="HaveyouseenmeModel.PetType" Width="1.5" PointX="0.75" PointY="3.75" Height="1.4033821614583335" IsExpanded="true" />
+        <EntityTypeShape EntityType="HaveyouseenmeModel.product" Width="1.5" PointX="0.75" PointY="1" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="HaveyouseenmeModel.sale" Width="1.5" PointX="3" PointY="0.875" Height="1.9802864583333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="HaveyouseenmeModel.Setting" Width="1.5" PointX="2.75" PointY="3.75" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="HaveyouseenmeModel.Status" Width="1.5" PointX="4.75" PointY="3.75" Height="1.4033821614583317" IsExpanded="true" />
+        <EntityTypeShape EntityType="HaveyouseenmeModel.tab1" Width="1.5" PointX="5.75" PointY="0.75" Height="1.4033821614583326" IsExpanded="true" />
+        <EntityTypeShape EntityType="HaveyouseenmeModel.tblemployee" Width="1.5" PointX="0.75" PointY="6.75" Height="1.9802864583333317" IsExpanded="true" />
+        <AssociationConnector Association="HaveyouseenmeModel.product_id_fk" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="1.8939925130208337" />
+          <ConnectorPoint PointX="3" PointY="1.8939925130208337" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

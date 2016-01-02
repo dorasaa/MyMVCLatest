@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HaveyouseenmeModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="HaveyouseenmeEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="PetTypes" EntityType="HaveyouseenmeModel.PetType" />
+    <EntitySet Name="products" EntityType="HaveyouseenmeModel.product" />
+    <EntitySet Name="sales" EntityType="HaveyouseenmeModel.sale" />
+    <EntitySet Name="Settings" EntityType="HaveyouseenmeModel.Setting" />
+    <EntitySet Name="Status" EntityType="HaveyouseenmeModel.Status" />
+    <EntitySet Name="tab1" EntityType="HaveyouseenmeModel.tab1" />
+    <EntitySet Name="tblemployees" EntityType="HaveyouseenmeModel.tblemployee" />
+    <AssociationSet Name="product_id_fk" Association="HaveyouseenmeModel.product_id_fk">
+      <End Role="product" EntitySet="products" />
+      <End Role="sale" EntitySet="sales" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="PetType">
+    <Key>
+      <PropertyRef Name="PetTypeID" />
+    </Key>
+    <Property Name="PetTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PetTypeDescription" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="product">
+    <Key>
+      <PropertyRef Name="productid" />
+    </Key>
+    <Property Name="productid" Type="Int32" Nullable="false" />
+    <Property Name="product1" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="cost" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="sales" Relationship="HaveyouseenmeModel.product_id_fk" FromRole="product" ToRole="sale" />
+  </EntityType>
+  <EntityType Name="sale">
+    <Key>
+      <PropertyRef Name="saleid" />
+    </Key>
+    <Property Name="saleid" Type="Int32" Nullable="false" />
+    <Property Name="saledate" Type="DateTime" Nullable="false" />
+    <Property Name="quantity" Type="Int32" />
+    <Property Name="productid" Type="Int32" />
+    <NavigationProperty Name="product" Relationship="HaveyouseenmeModel.product_id_fk" FromRole="sale" ToRole="product" />
+  </EntityType>
+  <EntityType Name="Setting">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Key" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Value" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Status">
+    <Key>
+      <PropertyRef Name="StatusID" />
+    </Key>
+    <Property Name="StatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="tab1">
+    <Key>
+      <PropertyRef Name="id1" />
+    </Key>
+    <Property Name="id1" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="tblemployee">
+    <Key>
+      <PropertyRef Name="employeeid" />
+      <PropertyRef Name="name" />
+      <PropertyRef Name="gender" />
+      <PropertyRef Name="city" />
+    </Key>
+    <Property Name="employeeid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="gender" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="city" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="deptid" Type="Int32" />
+  </EntityType>
+  <Association Name="product_id_fk">
+    <End Role="product" Type="HaveyouseenmeModel.product" Multiplicity="0..1" />
+    <End Role="sale" Type="HaveyouseenmeModel.sale" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="product">
+        <PropertyRef Name="productid" />
+      </Principal>
+      <Dependent Role="sale">
+        <PropertyRef Name="productid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

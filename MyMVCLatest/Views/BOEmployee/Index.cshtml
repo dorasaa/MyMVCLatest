@@ -1,0 +1,47 @@
+﻿@model IEnumerable<BusinessLayer.Employee>
+@{
+    ViewBag.Title = "Index";
+}
+<h2>
+    Employee List</h2>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div style="font-family: Calibri; font-size: 14x">
+    <table>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.city)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.deptid)
+            </th>
+            <th>
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            using (Html.BeginForm("Delete", "BOEmployee", new { id = item.id }))
+            {
+                <tr> <td>
+                @Html.DisplayFor(modelItem => item.name)
+                </td> <td>
+                @Html.DisplayFor(modelItem => item.gender)
+                </td> <td>
+                @Html.DisplayFor(modelItem => item.city)
+                </td> <td>
+                @Html.DisplayFor(modelItem => item.deptid)
+                </td> <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.id }) | @*@Html.ActionLink("Delete", "Delete", new { id=item.id })*@
+            <input type="submit" value="Delete" onclick="return confirm('Are you sure want to delete the record @item.id (Y/N)? ')"+ /> </td> </tr>
+            }
+        }
+    </table>
+</div>
