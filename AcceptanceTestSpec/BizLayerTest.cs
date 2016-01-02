@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace AcceptanceTestSpec
 {
-    public class Class1
+    
+    public class BizLayerTest
     {
+        
     }
 }
