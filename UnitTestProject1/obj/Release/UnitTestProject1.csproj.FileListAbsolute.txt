@@ -1,7 +1,10 @@
 C:\Devs\UnitTestProject1\bin\Release\UnitTestProject1.dll
 C:\Devs\UnitTestProject1\bin\Release\UnitTestProject1.pdb
+C:\Devs\UnitTestProject1\bin\Release\nunit.core.dll
+C:\Devs\UnitTestProject1\bin\Release\nunit.core.interfaces.dll
 C:\Devs\UnitTestProject1\bin\Release\nunit.framework.dll
+C:\Devs\UnitTestProject1\bin\Release\nunit.util.dll
+C:\Devs\UnitTestProject1\bin\Release\NUnit.VisualStudio.TestAdapter.dll
 C:\Devs\UnitTestProject1\bin\Release\nunit.framework.xml
-C:\Devs\UnitTestProject1\obj\Release\UnitTestProject1.csprojResolveAssemblyReference.cache
 C:\Devs\UnitTestProject1\obj\Release\UnitTestProject1.dll
 C:\Devs\UnitTestProject1\obj\Release\UnitTestProject1.pdb

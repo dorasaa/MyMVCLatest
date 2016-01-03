@@ -52,3 +52,7 @@ C:\Devs\MyMVCLatest\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
 C:\Devs\MyMVCLatest\obj\Release\MyMVCLatest.csprojResolveAssemblyReference.cache
 C:\Devs\MyMVCLatest\obj\Release\MyMVCLatest.dll
 C:\Devs\MyMVCLatest\obj\Release\MyMVCLatest.pdb
+C:\Devs\MyMVCLatest\bin\nunit.core.dll
+C:\Devs\MyMVCLatest\bin\nunit.core.interfaces.dll
+C:\Devs\MyMVCLatest\bin\nunit.util.dll
+C:\Devs\MyMVCLatest\bin\NUnit.VisualStudio.TestAdapter.dll

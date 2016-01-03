@@ -3,10 +3,12 @@ C:\Devs\BusinessLayer\bin\Release\BusinessLayer.dll
 C:\Devs\BusinessLayer\bin\Release\BusinessLayer.pdb
 C:\Devs\BusinessLayer\bin\Release\EntityFramework.dll
 C:\Devs\BusinessLayer\bin\Release\EntityFramework.SqlServer.dll
-C:\Devs\BusinessLayer\bin\Release\nunit.framework.dll
 C:\Devs\BusinessLayer\bin\Release\TechTalk.SpecFlow.dll
 C:\Devs\BusinessLayer\bin\Release\EntityFramework.xml
 C:\Devs\BusinessLayer\bin\Release\EntityFramework.SqlServer.xml
-C:\Devs\BusinessLayer\bin\Release\nunit.framework.xml
 C:\Devs\BusinessLayer\obj\Release\BusinessLayer.dll
 C:\Devs\BusinessLayer\obj\Release\BusinessLayer.pdb
+C:\Devs\BusinessLayer\bin\Release\nunit.core.dll
+C:\Devs\BusinessLayer\bin\Release\nunit.core.interfaces.dll
+C:\Devs\BusinessLayer\bin\Release\nunit.util.dll
+C:\Devs\BusinessLayer\bin\Release\NUnit.VisualStudio.TestAdapter.dll
