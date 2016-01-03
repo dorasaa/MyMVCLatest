@@ -1,0 +1,7 @@
+C:\Devs\AcceptanceTestSpec\bin\Release\AcceptanceTestSpec.dll.config
+C:\Devs\AcceptanceTestSpec\bin\Release\AcceptanceTestSpec.dll
+C:\Devs\AcceptanceTestSpec\bin\Release\AcceptanceTestSpec.pdb
+C:\Devs\AcceptanceTestSpec\bin\Release\TechTalk.SpecFlow.dll
+C:\Devs\AcceptanceTestSpec\obj\Release\AcceptanceTestSpec.csprojResolveAssemblyReference.cache
+C:\Devs\AcceptanceTestSpec\obj\Release\AcceptanceTestSpec.dll
+C:\Devs\AcceptanceTestSpec\obj\Release\AcceptanceTestSpec.pdb

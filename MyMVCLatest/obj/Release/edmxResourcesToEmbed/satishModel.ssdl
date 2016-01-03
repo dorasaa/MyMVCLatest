@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HaveyouseenmeModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="HaveyouseenmeModelStoreContainer">
+    <EntitySet Name="PetType" EntityType="HaveyouseenmeModel.Store.PetType" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="product" EntityType="HaveyouseenmeModel.Store.product" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="sale" EntityType="HaveyouseenmeModel.Store.sale" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Setting" EntityType="HaveyouseenmeModel.Store.Setting" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Status" EntityType="HaveyouseenmeModel.Store.Status" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tab1" EntityType="HaveyouseenmeModel.Store.tab1" store:Type="Tables" store:Schema="dbo" store:Name="tab1">
+      <DefiningQuery>SELECT 
+      [tab1].[id1] AS [id1], 
+      [tab1].[name] AS [name]
+      FROM [dbo].[tab1] AS [tab1]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="tblemployee" EntityType="HaveyouseenmeModel.Store.tblemployee" store:Type="Tables" store:Schema="dbo" store:Name="tblemployee">
+      <DefiningQuery>SELECT 
+      [tblemployee].[employeeid] AS [employeeid], 
+      [tblemployee].[name] AS [name], 
+      [tblemployee].[gender] AS [gender], 
+      [tblemployee].[city] AS [city], 
+      [tblemployee].[deptid] AS [deptid]
+      FROM [dbo].[tblemployee] AS [tblemployee]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="product_id_fk" Association="HaveyouseenmeModel.Store.product_id_fk">
+      <End Role="product" EntitySet="product" />
+      <End Role="sale" EntitySet="sale" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="PetType">
+    <Key>
+      <PropertyRef Name="PetTypeID" />
+    </Key>
+    <Property Name="PetTypeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="PetTypeDescription" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="product">
+    <Key>
+      <PropertyRef Name="productid" />
+    </Key>
+    <Property Name="productid" Type="int" Nullable="false" />
+    <Property Name="product" Type="varchar" MaxLength="100" />
+    <Property Name="cost" Type="money" />
+  </EntityType>
+  <EntityType Name="sale">
+    <Key>
+      <PropertyRef Name="saleid" />
+    </Key>
+    <Property Name="saleid" Type="int" Nullable="false" />
+    <Property Name="saledate" Type="date" Nullable="false" />
+    <Property Name="quantity" Type="int" />
+    <Property Name="productid" Type="int" />
+  </EntityType>
+  <EntityType Name="Setting">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Key" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Value" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Status">
+    <Key>
+      <PropertyRef Name="StatusID" />
+    </Key>
+    <Property Name="StatusID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'Haveyouseenme.dbo.tab1' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="tab1">
+    <Key>
+      <PropertyRef Name="id1" />
+    </Key>
+    <Property Name="id1" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'Haveyouseenme.dbo.tblemployee' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="tblemployee">
+    <Key>
+      <PropertyRef Name="employeeid" />
+      <PropertyRef Name="name" />
+      <PropertyRef Name="gender" />
+      <PropertyRef Name="city" />
+    </Key>
+    <Property Name="employeeid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="gender" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="city" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="deptid" Type="int" />
+  </EntityType>
+  <Association Name="product_id_fk">
+    <End Role="product" Type="HaveyouseenmeModel.Store.product" Multiplicity="0..1" />
+    <End Role="sale" Type="HaveyouseenmeModel.Store.sale" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="product">
+        <PropertyRef Name="productid" />
+      </Principal>
+      <Dependent Role="sale">
+        <PropertyRef Name="productid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <!--Errors Found During Generation:
+      warning 6013: The table/view 'Haveyouseenme.dbo.tab2' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="tab2">
+        <Property Name="id1" Type="int" />
+        <Property Name="score" Type="int" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6013: The table/view 'Haveyouseenme.dbo.tbldepartment' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="tbldepartment">
+        <Property Name="id" Type="int" />
+        <Property Name="name" Type="varchar" MaxLength="50" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6013: The table/view 'Haveyouseenme.dbo.TestTable' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="TestTable">
+        <Property Name="Column1" Type="int" />
+        <Property Name="Column2" Type="int" />
+        <Property Name="Column3" Type="int" />
+        <Property Name="Column4" Type="int" />
+      </EntityType>-->
+</Schema>
